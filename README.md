@@ -20,6 +20,16 @@ vipera MyModule MyTemplate
 
 
 
+## Template types
+
+- classic
+
+- default
+
+- generic
+
+  
+
 ## Template variables
 
 You can use the following variables (in file names too):
@@ -37,9 +47,13 @@ eg. {module} -> MyModule
 
 Just clone or download this repository & run:
 
+```shell
+swift run install --with-templates --with-xcode-templates
 ```
-swift run install
-```
+
+You can update the binary only if you drop the`--with-templates` flag.
+
+You can install Xcode templates using `--with-xcode-templates` flag.
 
 
 
