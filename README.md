@@ -28,7 +28,16 @@ vipera MyModule MyTemplate
 
 - generic
 
-  
+
+
+## Requirements
+
+[VIPER](https://github.com/CoreKit/VIPER) - In order to use the new default / generic template (v2.0)
+
+```swift
+@_exported import VIPER
+```
+
 
 ## Template variables
 
