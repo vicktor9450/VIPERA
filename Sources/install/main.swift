@@ -23,14 +23,14 @@ let workDir = try homeDir.add(scriptName, isHidden: true)
 if installTemplates {
     let templatesSource = Dir.current.child(templatesDir).child(scriptName)
     let targetDir = workDir.child(templatesDir)
-    try targetDir.create()
+    try targetDir.create(withIntermediateDirectories: true, attributes: nil)
     try templatesSource.copy(to: targetDir, force: true)
 }
 
 if installXCodeTemplates {
     let templatesSource = Dir.current.child(templatesDir).child(xc)
     let targetDir = xcDir.child(scriptName.uppercased())
-    try targetDir.create()
+    try targetDir.create(withIntermediateDirectories: true, attributes: nil)
     try templatesSource.copy(to: targetDir, force: true)
 }
 
