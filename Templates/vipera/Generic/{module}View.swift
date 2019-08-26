@@ -8,14 +8,14 @@
 import Foundation
 import UIKit
 
-class {module}View: UIViewController, GenericViewInterface {
-    
+final class {module}View: UIViewController, GenericViewInterface {
+
     var presenter: {module}PresenterViewInterface?
-    
-    
+
+
 }
 
 extension {module}View: {module}ViewPresenterInterface {
 
-    
+
 }

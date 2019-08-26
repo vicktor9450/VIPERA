@@ -7,12 +7,12 @@
 
 import Foundation
 
-class {module}Interactor {
+final class {module}Interactor {
     var presenter: {module}PresenterInteractorInterface?
 }
 
 extension {module}Interactor: {module}InteractorInterface {
-    
-    
+
+
 }
 

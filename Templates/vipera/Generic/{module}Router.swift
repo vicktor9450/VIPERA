@@ -8,16 +8,16 @@
 import Foundation
 import UIKit
 
-class {module}Router: GenericRouterInterface {
+final class {module}Router: GenericRouterInterface {
 
     var presenter: {module}PresenterRouterInterface?
-    
+
     var viewController: UIViewController?
-    
-    
+
+
 }
 
 extension {module}Router: {module}RouterPresenterInterface {
-    
-    
+
+
 }

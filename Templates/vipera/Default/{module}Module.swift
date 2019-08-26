@@ -11,7 +11,7 @@ import UIKit
 // MARK: - router
 
 protocol {module}RouterPresenterInterface: RouterPresenterInterface {
-    
+
 }
 
 protocol {module}RouterInterface: RouterInterface &
@@ -23,7 +23,7 @@ protocol {module}RouterInterface: RouterInterface &
 // MARK: - interactor
 
 protocol {module}InteractorPresenterInterface: InteractorPresenterInterface {
-    
+
 }
 
 protocol {module}InteractorInterface: InteractorInterface &
@@ -50,7 +50,7 @@ protocol {module}PresenterInterface: PresenterInterface &
                                  {module}PresenterRouterInterface &
                                  {module}PresenterInteractorInterface &
                                  {module}PresenterViewInterface {
-    
+
     var router: {module}RouterPresenterInterface? { get }
     var interactor: {module}InteractorPresenterInterface? { get }
     var view: {module}ViewPresenterInterface? { get }
@@ -71,25 +71,25 @@ protocol {module}ViewInterface: ViewInterface &
 
 // MARK: - module builder
 
-class {module}Module: ModuleInterface {
-    
+final class {module}Module: ModuleInterface {
+
     func build() -> UIViewController {
         let view = {module}View()
         let interactor = {module}Interactor()
         let presenter = {module}Presenter()
         let router = {module}Router()
-        
+
         view.presenter = presenter
-        
+
         presenter.interactor = interactor
         presenter.view = view
         presenter.router = router
-        
+
         interactor.presenter = presenter
-        
+
         router.presenter = presenter
         router.viewController = view
-        
+
         return view
     }
 }

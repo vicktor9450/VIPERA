@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ___VARIABLE_MODULE_NAME___Router {
+final class ___VARIABLE_MODULE_NAME___Router {
 
     var viewController: UIViewController?
 

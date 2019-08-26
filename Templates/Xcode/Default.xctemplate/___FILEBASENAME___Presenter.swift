@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ___VARIABLE_MODULE_NAME___Presenter {
+final class ___VARIABLE_MODULE_NAME___Presenter {
     var router: ___VARIABLE_MODULE_NAME___RouterPresenterInterface?
     var interactor: ___VARIABLE_MODULE_NAME___InteractorPresenterInterface?
     var view: ___VARIABLE_MODULE_NAME___ViewPresenterInterface?

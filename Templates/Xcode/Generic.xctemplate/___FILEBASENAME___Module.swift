@@ -49,7 +49,7 @@ protocol ___VARIABLE_MODULE_NAME___ViewPresenterInterface: ViewPresenterInterfac
 
 // MARK: - module builder
 
-class ___VARIABLE_MODULE_NAME___Module: GenericModuleInterface {
+final class ___VARIABLE_MODULE_NAME___Module: GenericModuleInterface {
 
     typealias View = ___VARIABLE_MODULE_NAME___View
     typealias Presenter = ___VARIABLE_MODULE_NAME___Presenter

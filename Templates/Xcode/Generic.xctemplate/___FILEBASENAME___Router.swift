@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ___VARIABLE_MODULE_NAME___Router: GenericRouterInterface {
+final class ___VARIABLE_MODULE_NAME___Router: GenericRouterInterface {
 
     var presenter: ___VARIABLE_MODULE_NAME___PresenterRouterInterface?
 

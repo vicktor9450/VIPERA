@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ___VARIABLE_MODULE_NAME___Interactor: GenericInteractorInterface {
+final class ___VARIABLE_MODULE_NAME___Interactor: GenericInteractorInterface {
 
     var presenter: ___VARIABLE_MODULE_NAME___PresenterInteractorInterface?
 

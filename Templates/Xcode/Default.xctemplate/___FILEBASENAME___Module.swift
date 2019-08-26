@@ -73,7 +73,7 @@ protocol ___VARIABLE_MODULE_NAME___ViewInterface: ViewInterface &
 
 // MARK: - module builder
 
-class ___VARIABLE_MODULE_NAME___Module: ModuleInterface {
+final class ___VARIABLE_MODULE_NAME___Module: ModuleInterface {
 
     func build() -> UIViewController {
         let view = ___VARIABLE_MODULE_NAME___View()

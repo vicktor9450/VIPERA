@@ -7,14 +7,14 @@
 
 import Foundation
 
-class {module}Interactor: GenericInteractorInterface {
-    
+final class {module}Interactor: GenericInteractorInterface {
+
     var presenter: {module}PresenterInteractorInterface?
- 
-    
+
+
 }
 
 extension {module}Interactor: {module}InteractorPresenterInterface {
-    
-    
+
+
 }

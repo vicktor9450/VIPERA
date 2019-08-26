@@ -8,7 +8,7 @@
 
 import Foundation
 
-class ___VARIABLE_MODULE_NAME___Interactor {
+final class ___VARIABLE_MODULE_NAME___Interactor {
     var presenter: ___VARIABLE_MODULE_NAME___PresenterInteractorInterface?
 }
 

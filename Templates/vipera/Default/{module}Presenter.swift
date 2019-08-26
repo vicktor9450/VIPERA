@@ -7,22 +7,22 @@
 
 import Foundation
 
-class {module}Presenter {
+final class {module}Presenter {
     var router: {module}RouterPresenterInterface?
     var interactor: {module}InteractorPresenterInterface?
     var view: {module}ViewPresenterInterface?
 }
 
 extension {module}Presenter: {module}PresenterInterface {
-    
+
     // MARK: - router
-    
-    
-    
+
+
+
     // MARK: - interactor
-    
-    
+
+
 
     // MARK: - view
-    
+
 }

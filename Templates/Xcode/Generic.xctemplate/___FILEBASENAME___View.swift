@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class ___VARIABLE_MODULE_NAME___View: UIViewController, GenericViewInterface {
+final class ___VARIABLE_MODULE_NAME___View: UIViewController, GenericViewInterface {
 
     var presenter: ___VARIABLE_MODULE_NAME___PresenterViewInterface?
 
