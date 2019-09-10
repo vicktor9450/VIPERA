@@ -9,9 +9,9 @@ import Foundation
 
 final class {module}Presenter: GenericPresenterInterface {
 
-    var router: {module}RouterPresenterInterface?
-    var interactor: {module}InteractorPresenterInterface?
-    var view: {module}ViewPresenterInterface?
+    var router: {module}RouterPresenterInterface!
+    var interactor: {module}InteractorPresenterInterface!
+    var view: {module}ViewPresenterInterface!
 
 
 }

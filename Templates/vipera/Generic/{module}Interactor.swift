@@ -9,7 +9,7 @@ import Foundation
 
 final class {module}Interactor: GenericInteractorInterface {
 
-    var presenter: {module}PresenterInteractorInterface?
+    var presenter: {module}PresenterInteractorInterface!
 
 
 }

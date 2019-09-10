@@ -10,9 +10,7 @@ import UIKit
 
 final class {module}Router: GenericRouterInterface {
 
-    var presenter: {module}PresenterRouterInterface?
-
-    var viewController: UIViewController?
+    var presenter: {module}PresenterRouterInterface!
 
 
 }

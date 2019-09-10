@@ -10,9 +10,9 @@ import Foundation
 
 final class ___VARIABLE_MODULE_NAME___Presenter: GenericPresenterInterface {
 
-    var router: ___VARIABLE_MODULE_NAME___RouterPresenterInterface?
-    var interactor: ___VARIABLE_MODULE_NAME___InteractorPresenterInterface?
-    var view: ___VARIABLE_MODULE_NAME___ViewPresenterInterface?
+    var router: ___VARIABLE_MODULE_NAME___RouterPresenterInterface!
+    var interactor: ___VARIABLE_MODULE_NAME___InteractorPresenterInterface!
+    var view: ___VARIABLE_MODULE_NAME___ViewPresenterInterface!
 
 
 }

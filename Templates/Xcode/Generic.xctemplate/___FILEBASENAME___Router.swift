@@ -11,10 +11,7 @@ import UIKit
 
 final class ___VARIABLE_MODULE_NAME___Router: GenericRouterInterface {
 
-    var presenter: ___VARIABLE_MODULE_NAME___PresenterRouterInterface?
-
-    var viewController: UIViewController?
-
+    var presenter: ___VARIABLE_MODULE_NAME___PresenterRouterInterface!
 
 }
 
