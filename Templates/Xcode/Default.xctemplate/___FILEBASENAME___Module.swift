@@ -18,7 +18,7 @@ protocol ___VARIABLE_MODULE_NAME___RouterPresenterInterface: RouterPresenterInte
 
 protocol ___VARIABLE_MODULE_NAME___RouterInterface: RouterInterface &
                               ___VARIABLE_MODULE_NAME___RouterPresenterInterface {
-    var presenter: ___VARIABLE_MODULE_NAME___PresenterRouterInterface? { get }
+    var presenter: ___VARIABLE_MODULE_NAME___PresenterRouterInterface! { get }
 
 }
 
@@ -30,7 +30,7 @@ protocol ___VARIABLE_MODULE_NAME___InteractorPresenterInterface: InteractorPrese
 
 protocol ___VARIABLE_MODULE_NAME___InteractorInterface: InteractorInterface &
                                   ___VARIABLE_MODULE_NAME___InteractorPresenterInterface {
-    var presenter: ___VARIABLE_MODULE_NAME___PresenterInteractorInterface? { get }
+    var presenter: ___VARIABLE_MODULE_NAME___PresenterInteractorInterface! { get }
 
 }
 
@@ -53,9 +53,9 @@ protocol ___VARIABLE_MODULE_NAME___PresenterInterface: PresenterInterface &
                                  ___VARIABLE_MODULE_NAME___PresenterInteractorInterface &
                                  ___VARIABLE_MODULE_NAME___PresenterViewInterface {
 
-    var router: ___VARIABLE_MODULE_NAME___RouterPresenterInterface? { get }
-    var interactor: ___VARIABLE_MODULE_NAME___InteractorPresenterInterface? { get }
-    var view: ___VARIABLE_MODULE_NAME___ViewPresenterInterface? { get }
+    var router: ___VARIABLE_MODULE_NAME___RouterPresenterInterface! { get }
+    var interactor: ___VARIABLE_MODULE_NAME___InteractorPresenterInterface! { get }
+    var view: ___VARIABLE_MODULE_NAME___ViewPresenterInterface! { get }
 
 }
 
@@ -67,7 +67,7 @@ protocol ___VARIABLE_MODULE_NAME___ViewPresenterInterface: ViewPresenterInterfac
 
 protocol ___VARIABLE_MODULE_NAME___ViewInterface: ViewInterface &
                             ___VARIABLE_MODULE_NAME___ViewPresenterInterface {
-    var presenter: ___VARIABLE_MODULE_NAME___PresenterViewInterface? { get }
+    var presenter: ___VARIABLE_MODULE_NAME___PresenterViewInterface! { get }
 
 }
 
@@ -90,7 +90,6 @@ final class ___VARIABLE_MODULE_NAME___Module: ModuleInterface {
         interactor.presenter = presenter
 
         router.presenter = presenter
-        router.viewController = view
 
         return view
     }

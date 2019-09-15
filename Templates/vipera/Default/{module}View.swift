@@ -10,7 +10,7 @@ import UIKit
 
 final class {module}View: UIViewController {
 
-    var presenter: {module}PresenterViewInterface?
+    var presenter: {module}PresenterViewInterface!
 }
 
 extension {module}View: {module}ViewInterface {
