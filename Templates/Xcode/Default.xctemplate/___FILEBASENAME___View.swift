@@ -11,7 +11,7 @@ import UIKit
 
 final class ___VARIABLE_MODULE_NAME___View: UIViewController {
 
-    var presenter: ___VARIABLE_MODULE_NAME___PresenterViewInterface?
+    var presenter: ___VARIABLE_MODULE_NAME___PresenterViewInterface!
 }
 
 extension ___VARIABLE_MODULE_NAME___View: ___VARIABLE_MODULE_NAME___ViewInterface {

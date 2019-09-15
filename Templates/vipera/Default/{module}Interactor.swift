@@ -8,7 +8,7 @@
 import Foundation
 
 final class {module}Interactor {
-    var presenter: {module}PresenterInteractorInterface?
+    var presenter: {module}PresenterInteractorInterface!
 }
 
 extension {module}Interactor: {module}InteractorInterface {

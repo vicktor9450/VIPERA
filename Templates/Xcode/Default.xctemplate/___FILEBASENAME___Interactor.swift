@@ -9,7 +9,7 @@
 import Foundation
 
 final class ___VARIABLE_MODULE_NAME___Interactor {
-    var presenter: ___VARIABLE_MODULE_NAME___PresenterInteractorInterface?
+    var presenter: ___VARIABLE_MODULE_NAME___PresenterInteractorInterface!
 }
 
 extension ___VARIABLE_MODULE_NAME___Interactor: ___VARIABLE_MODULE_NAME___InteractorInterface {

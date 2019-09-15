@@ -16,7 +16,7 @@ protocol {module}RouterPresenterInterface: RouterPresenterInterface {
 
 protocol {module}RouterInterface: RouterInterface &
                               {module}RouterPresenterInterface {
-    var presenter: {module}PresenterRouterInterface? { get }
+    var presenter: {module}PresenterRouterInterface! { get }
 
 }
 
@@ -28,7 +28,7 @@ protocol {module}InteractorPresenterInterface: InteractorPresenterInterface {
 
 protocol {module}InteractorInterface: InteractorInterface &
                                   {module}InteractorPresenterInterface {
-    var presenter: {module}PresenterInteractorInterface? { get }
+    var presenter: {module}PresenterInteractorInterface! { get }
 
 }
 
@@ -51,9 +51,9 @@ protocol {module}PresenterInterface: PresenterInterface &
                                  {module}PresenterInteractorInterface &
                                  {module}PresenterViewInterface {
 
-    var router: {module}RouterPresenterInterface? { get }
-    var interactor: {module}InteractorPresenterInterface? { get }
-    var view: {module}ViewPresenterInterface? { get }
+    var router: {module}RouterPresenterInterface! { get }
+    var interactor: {module}InteractorPresenterInterface! { get }
+    var view: {module}ViewPresenterInterface! { get }
 
 }
 
@@ -65,7 +65,7 @@ protocol {module}ViewPresenterInterface: ViewPresenterInterface {
 
 protocol {module}ViewInterface: ViewInterface &
                             {module}ViewPresenterInterface {
-    var presenter: {module}PresenterViewInterface? { get }
+    var presenter: {module}PresenterViewInterface! { get }
 
 }
 
@@ -88,7 +88,6 @@ final class {module}Module: ModuleInterface {
         interactor.presenter = presenter
 
         router.presenter = presenter
-        router.viewController = view
 
         return view
     }

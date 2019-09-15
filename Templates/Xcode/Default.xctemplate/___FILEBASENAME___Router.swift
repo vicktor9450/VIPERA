@@ -11,9 +11,7 @@ import UIKit
 
 final class ___VARIABLE_MODULE_NAME___Router {
 
-    var viewController: UIViewController?
-
-    var presenter: ___VARIABLE_MODULE_NAME___PresenterRouterInterface?
+    var presenter: ___VARIABLE_MODULE_NAME___PresenterRouterInterface!
 }
 
 extension ___VARIABLE_MODULE_NAME___Router: ___VARIABLE_MODULE_NAME___RouterInterface {
