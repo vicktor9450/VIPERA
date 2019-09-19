@@ -1,2 +1,2 @@
 install:
-	swift run install --with-templates --with-xcode-templates
+	swift run install

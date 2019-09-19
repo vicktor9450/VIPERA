@@ -8,14 +8,19 @@
 import Foundation
 import UIKit
 
-final class {module}View: UIViewController, GenericViewInterface {
+final class {module}View: UIViewController, ViewInterface {
 
     var presenter: {module}PresenterViewInterface!
 
 
+    func viewDidLoad() {
+        super.viewDidLoad()
+
+        self.presenter.ready()
+    }
+
 }
 
 extension {module}View: {module}ViewPresenterInterface {
-
 
 }

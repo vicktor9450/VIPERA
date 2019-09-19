@@ -11,30 +11,25 @@ import UIKit
 
 protocol {module}RouterPresenterInterface: RouterPresenterInterface {
 
-
 }
 
 // MARK: - presenter
 
 protocol {module}PresenterRouterInterface: PresenterRouterInterface {
 
-
 }
 
 protocol {module}PresenterInteractorInterface: PresenterInteractorInterface {
 
-
 }
 
 protocol {module}PresenterViewInterface: PresenterViewInterface {
-
-
+    func ready()
 }
 
 // MARK: - interactor
 
 protocol {module}InteractorPresenterInterface: InteractorPresenterInterface {
-
 
 }
 
@@ -42,12 +37,12 @@ protocol {module}InteractorPresenterInterface: InteractorPresenterInterface {
 
 protocol {module}ViewPresenterInterface: ViewPresenterInterface {
 
-
 }
+
 
 // MARK: - module builder
 
-final class {module}Module: GenericModuleInterface {
+final class {module}Module: ModuleInterface {
 
     typealias View = {module}View
     typealias Presenter = {module}Presenter
@@ -60,7 +55,7 @@ final class {module}Module: GenericModuleInterface {
         let presenter = Presenter()
         let router = Router()
 
-        self.compose(view: view, presenter: presenter, router: router, interactor: interactor)
+        self.assemble(view: view, presenter: presenter, router: router, interactor: interactor)
 
         router.viewController = view
 

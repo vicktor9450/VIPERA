@@ -3,45 +3,48 @@
 The most simple VIPER module generator for Swift projects.
 
 
+## Install
+
+Just clone or download this repository & run:
+
+```shell
+make install
+```
 
 ## Usage
 
-Generate module from default template
+Just run:
 
 ```
 vipera MyModule
 ```
 
-You can put your own templates under the `.viper/Templates/` path, e.g. MyTemplate, usage:
-
-```
-vipera MyModule MyTemplate
-```
-
-
-
-## Template types
-
-- classic
-
-- default
-
-- generic
-
-
-
 ## Requirements
 
-[VIPER](https://github.com/CoreKit/VIPER) - In order to use the new default / generic template (v2.0)
+[VIPER](https://github.com/CoreKit/VIPER) - In order to use the global template (v3.0.0)
+
+Install via SPM
+
+```
+ .package(url: "https://github.com/CoreKit/VIPER", from: "3.0.0")
+```
 
 ```swift
 @_exported import VIPER
 ```
 
+## Templates
+
+The global template is located under the `~/.vipera` path. Please don't change it!
+
+You can put your own templates under a local `.viper` folder inside your Xcode project.
+
+VIPERA will use every `*.swift` file as a template source.
+
 
 ## Template variables
 
-You can use the following variables (in file names too):
+You can use the following variables (in the file names too):
 
 - module - given module name (capitalized)
 - project - based on `.xcodeproj` or `.xcworkspace` name
@@ -49,21 +52,6 @@ You can use the following variables (in file names too):
 - date - current date in local short format
 
 eg. {module} -> MyModule
-
-
-
-## Install
-
-Just clone or download this repository & run:
-
-```shell
-swift run install --with-templates --with-xcode-templates
-```
-
-You can update the binary only if you drop the`--with-templates` flag.
-
-You can install Xcode templates using `--with-xcode-templates` flag.
-
 
 
 ## License
