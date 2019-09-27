@@ -13,7 +13,7 @@ final class {module}View: UIViewController, ViewInterface {
     var presenter: {module}PresenterViewInterface!
 
 
-    func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
 
         self.presenter.start()
