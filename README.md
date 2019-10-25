@@ -37,7 +37,7 @@ Install via SPM
 
 The global template is located under the `~/.vipera` path. Please don't change it!
 
-You can put your own templates under a local `.viper` folder inside your Xcode project.
+You can put your own templates under a local `.vipera` folder inside your Xcode project.
 
 VIPERA will use every `*.swift` file as a template source.
 
