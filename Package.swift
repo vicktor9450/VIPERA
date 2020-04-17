@@ -5,6 +5,7 @@ let package = Package(
     name: "vipera",
     products: [
         .executable(name: "vipera", targets: ["vipera"]),
+        .library(name: "ViperaModules", targets: ["ViperaModules"])
     ],
     dependencies: [
         .package(url: "https://github.com/binarybirds/dir", from: "1.0.0"),
@@ -12,8 +13,11 @@ let package = Package(
     ],
     targets: [
         .target(
+            name: "ViperaModules",
+            dependencies: ["Dir"]),
+        .target(
             name: "vipera",
-            dependencies: ["Dir"],
+            dependencies: ["Dir", "ViperaModules"],
             path: "./Sources/vipera"),
         .target(
             name: "install",
@@ -21,6 +25,6 @@ let package = Package(
             path: "./Sources/install"),
         .testTarget(
             name: "viperaTests",
-            dependencies: ["vipera"]),
+            dependencies: ["ViperaModules"]),
     ]
 )
