@@ -22,6 +22,7 @@ struct Messages {
         Available options:
             --version   |  Prints version of the script
             --help, -h  |  Prints help for the script
+            --path, -p  |  Creates module in the given path
         
         Global template dir: `~/.vipera`
     
@@ -32,6 +33,13 @@ struct Messages {
     
         💡 VIPERA will always use the local `.vipera` folder as a template source.
 
+    """
+    
+    static let invalidUsageOfPath: String = """
+    🐍 VIPERA code generator
+
+    Invalid usage of path argument! Check `vipera --help` for usage information
+    
     """
     
     static let moduleCreated: String = "🐍 VIPER module `%@` is ready to use, based on the `%@` template."
