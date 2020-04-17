@@ -1,4 +1,3 @@
-import ViperaModules
 
 struct Messages {
     
@@ -51,6 +50,8 @@ struct Messages {
     Check `vipera --help` for usage information
     
     """
+    
+    static let unknownArgument: String = "Unknown argument `%@` used."
     
     static let version: String = """
     🐍 VIPERA code generator

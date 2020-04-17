@@ -2,62 +2,25 @@ import Foundation
 import Dir
 import ViperaModules
 
-func main() {
+func main() throws {
     let printer = Printer()
     let dirManager = DirectoryManager()
     let args = ArgumentsReader().passedArguments()
+    let argsResolver = ArgumentsResolver()
     
-    if args.contains(.version) {
-        printer.print(message: .version)
-        exit(0)
-    }
+    let argsReadingResult = argsResolver.resolve(args: args)
     
-    if args.contains(.help) {
-        printer.print(message: .help)
-        exit(0)
-    }
-    
-    guard !args.isEmpty else {
-        printer.print(message: .help)
-        exit(0)
-    }
-        
     let currentDir = dirManager.currentDir()
-    let localTemplateDir = dirManager.localTemplateDir()
-    let templateDir = localTemplateDir ?? dirManager.globalTemplateDir()
     
-    let moduleParentDirectory: Dir
-    
-    let pathArg = args.first(where: {
-        guard case .path = $0 else { return false }
-        return true
-    })
-    switch pathArg {
-    case .none:
-        moduleParentDirectory = currentDir
-    case let .path(path):
-        guard let path = path else {
-            printer.print(message: .invalidUsageOfPath)
-            exit(-1)
-        }
-        do {
-            moduleParentDirectory = try dirManager.createChildDir(path: path)
-        } catch {
-            printer.print(error)
-            exit(-1)
-        }
-    default:
-        exit(-1)
-    }
-    
-    let moduleName = args.reduce(into: "") { (result, arg) in
-        guard case let .moduleName(moduleName) = arg else { return }
-        result = moduleName.capitalizedFirstLetter()
-    }
-    
-    guard !moduleName.isEmpty else {
-        printer.print(message: .moduleNameNotFound)
-        exit(-1)
+    var moduleParentDirectory: Dir = currentDir
+    var moduleName: String = ""
+    switch argsReadingResult {
+    case let .failure(exitError):
+        exit(exitError.code)
+    case let .success(params):
+        moduleName = params.moduleName
+        guard let path = params.moduleParentDirRelativePath else { break }
+        moduleParentDirectory = try dirManager.createChildDir(path: path)
     }
     
     let userName = getGitUserName() ?? "VIPERA Generator"
@@ -71,17 +34,19 @@ func main() {
         "date": date,
     ]
     
-    do {
-        let moduleDir = try moduleParentDirectory.add(moduleName)
-        try createModuleComponent(from: templateDir.url, to: moduleDir.url, withParams: params)
-        
-        printer.print(message: .moduleCreated(moduleName: moduleName, isTemplateLocal: localTemplateDir != nil))
-    } catch {
-        printer.print(error)
-        exit(-1)
-    }
+    let localTemplateDir = dirManager.localTemplateDir()
+    let templateDir = localTemplateDir ?? dirManager.globalTemplateDir()
+    let moduleDir = try moduleParentDirectory.add(moduleName)
+    try createModuleComponent(from: templateDir.url, to: moduleDir.url, withParams: params)
+    
+    printer.print(message: .moduleCreated(moduleName: moduleName, isTemplateLocal: localTemplateDir != nil))
     
     printer.print(message: .footer)
 }
 
-main()
+do {
+    try main()
+} catch {
+    print(error.localizedDescription)
+    exit(-1)
+}
