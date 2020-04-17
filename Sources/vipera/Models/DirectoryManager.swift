@@ -1,5 +1,6 @@
 import Foundation
 import Dir
+import ViperaModules
 
 class DirectoryManager {
     

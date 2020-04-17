@@ -1,34 +1,42 @@
 import Foundation
 import Dir
+import ViperaModules
 
 func main() {
     let printer = Printer()
     let dirManager = DirectoryManager()
+    let args = ArgumentsReader().passedArguments()
     
-    if CommandLine.arguments.contains("--version") {
+    if args.contains(.version) {
         printer.print(message: .version)
         exit(0)
     }
     
-    if CommandLine.arguments.contains("--help") || CommandLine.arguments.contains("-h") {
+    if args.contains(.help) {
         printer.print(message: .help)
         exit(0)
     }
     
-    guard CommandLine.arguments.count > 1 else {
+    guard !args.isEmpty else {
         printer.print(message: .help)
         exit(0)
     }
-    
-    var readArguments: [String] = [CommandLine.arguments.first!]
-    
+        
     let currentDir = dirManager.currentDir()
     let localTemplateDir = dirManager.localTemplateDir()
     let templateDir = localTemplateDir ?? dirManager.globalTemplateDir()
     
     let moduleParentDirectory: Dir
-    if let pathArgumentIndex = CommandLine.arguments.firstIndex(of: "--path") ?? CommandLine.arguments.firstIndex(of: "-p") {
-        guard let path = CommandLine.arguments[safeIndex: pathArgumentIndex + 1] else {
+    
+    let pathArg = args.first(where: {
+        guard case .path = $0 else { return false }
+        return true
+    })
+    switch pathArg {
+    case .none:
+        moduleParentDirectory = currentDir
+    case let .path(path):
+        guard let path = path else {
             printer.print(message: .invalidUsageOfPath)
             exit(-1)
         }
@@ -38,12 +46,16 @@ func main() {
             printer.print(error)
             exit(-1)
         }
-        readArguments.append(contentsOf: ["--path", "-p", path])
-    } else {
-        moduleParentDirectory = currentDir
+    default:
+        exit(-1)
     }
     
-    guard let moduleName = CommandLine.arguments.first(where: { !readArguments.contains($0) })?.capitalizedFirstLetter() else {
+    let moduleName = args.reduce(into: "") { (result, arg) in
+        guard case let .moduleName(moduleName) = arg else { return }
+        result = moduleName.capitalizedFirstLetter()
+    }
+    
+    guard !moduleName.isEmpty else {
         printer.print(message: .moduleNameNotFound)
         exit(-1)
     }
