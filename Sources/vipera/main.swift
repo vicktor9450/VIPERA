@@ -1,30 +1,21 @@
 import Foundation
 import Dir
 
-let version = "2.0.0"
+let printer = Printer()
 
 if CommandLine.arguments.contains("--version") {
-    print("""
-    🐍 VIPERA code generator
+    printer.print(message: .version)
+    exit(0)
+}
 
-        Version: \(version)
-
-        Global template dir: `~/.vipera`
-
-        VIPER interfaces: `https://github.com/corekit/viper`
-
-            .package(url: \"https://github.com/CoreKit/VIPER\", from: \"3.0.0\"
-
-
-        💡 VIPERA will always use the local `.vipera` folder as a template source.
-
-    """)
+if CommandLine.arguments.contains("--help") || CommandLine.arguments.contains("-h") {
+    printer.print(message: .help)
     exit(0)
 }
 
 guard CommandLine.arguments.count > 1 else {
-    print("You have to to provide a module name as the first argument.")
-    exit(-1)
+    printer.print(message: .help)
+    exit(0)
 }
 
 let moduleName = CommandLine.arguments[1].capitalizedFirstLetter()
@@ -55,22 +46,11 @@ do {
     let moduleDir = try currentDir.add(moduleName)
     try createModuleComponent(from: templateDir.url, to: moduleDir.url)
 
-    print("🐍 VIPER module `\(moduleName)` is ready to use, based on the `\(localTemplateDir.isExistingDirectory ? "local" : "global")` template.")
+    printer.print(message: .moduleCreated(moduleName: moduleName, isTemplateLocal: localTemplateDir.isExistingDirectory))
+} catch {
+    printer.print(error)
 }
-catch {
-    print(error.localizedDescription)
-}
 
 
-print("""
-
-    💡 In order to use the module you'll need the following library:
-
-        https://github.com/corekit/viper
-
-        .package(url: "https://github.com/CoreKit/VIPER", from: "3.0.0")
-
-    🍺 Enjoy!
-
-""")
+printer.print(message: .footer)
 
