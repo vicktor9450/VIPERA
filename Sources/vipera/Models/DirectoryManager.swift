@@ -12,11 +12,11 @@ class DirectoryManager {
     }
     
     func globalTemplateDir() -> Dir {
-        self.homeDir().child(scriptName, isHidden: true)
+        self.homeDir().child(Constants.scriptName, isHidden: true)
     }
     
     func localTemplateDir() -> Dir? {
-        let dir = self.currentDir().child(scriptName, isHidden: true)
+        let dir = self.currentDir().child(Constants.scriptName, isHidden: true)
         guard dir.exists else { return nil }
         return dir
     }

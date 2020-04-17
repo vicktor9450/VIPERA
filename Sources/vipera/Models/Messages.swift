@@ -36,13 +36,20 @@ struct Messages {
     """
     
     static let invalidUsageOfPath: String = """
-    🐍 VIPERA code generator
+    Invalid usage of path argument!
 
-    Invalid usage of path argument! Check `vipera --help` for usage information
+    Check `vipera --help` for usage information
     
     """
     
     static let moduleCreated: String = "🐍 VIPER module `%@` is ready to use, based on the `%@` template."
+    
+    static let moduleNameNotFound: String = """
+    Not found module name in the provided arguments.
+
+    Check `vipera --help` for usage information
+    
+    """
     
     static let version: String = """
     🐍 VIPERA code generator

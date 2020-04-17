@@ -13,6 +13,7 @@ class Printer {
         case help
         case invalidUsageOfPath
         case moduleCreated(moduleName: String, isTemplateLocal: Bool)
+        case moduleNameNotFound
         case version
         
         var string: String {
@@ -26,6 +27,8 @@ class Printer {
             case let .moduleCreated(moduleName, isTemplateLocal):
                 let templateLocalization = isTemplateLocal ? "local" : "global"
                 return String(format: Messages.moduleCreated, moduleName, templateLocalization)
+            case .moduleNameNotFound:
+                return Messages.moduleNameNotFound
             case .version:
                 return Messages.version
             }

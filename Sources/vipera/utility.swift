@@ -54,15 +54,14 @@ func replace(_ parameters: [String: String], in text: String) -> String {
     return result
 }
 
-func createModuleComponent(from url: URL, to moduleUrl: URL, using fileManager: FileManager = .default) throws {
+func createModuleComponent(from url: URL, to moduleUrl: URL, withParams params: [String: String], using fileManager: FileManager = .default) throws {
     let items = try fileManager.contentsOfDirectory(at: url, includingPropertiesForKeys: nil)
     try items.forEach { item in
         if Dir(path: item.path).isExistingDirectory {
             let itemUrl = moduleUrl.appendingPathComponent(item.lastPathComponent)
             try fileManager.createDirectory(at: itemUrl, withIntermediateDirectories: true, attributes: nil)
-            try createModuleComponent(from: item, to: itemUrl)
-        }
-        else {
+            try createModuleComponent(from: item, to: itemUrl, withParams: params)
+        } else {
             guard item.pathExtension == "swift" else { return }
             let template = try String(contentsOf: item)
             let fileName = replace(params, in: item.lastPathComponent)
